@@ -1,0 +1,111 @@
+/* Styles for the Register page */
+:root{
+  --card-bg: #ffffff;
+  --page-bg: #f4f7fb;
+  --accent: #4f46e5;
+  --accent-strong: #3730a3;
+  --muted: #6b7280;
+  --danger: #dc2626;
+  --radius: 12px;
+}
+
+.register-page{
+  background: linear-gradient(180deg, var(--page-bg), #eef2ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.register-card{
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+  padding: 28px 28px;
+}
+
+.register-header{
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.register-header h2{
+  margin: 0;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.register-sub{
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.ht-form-row{
+  margin-bottom: 14px;
+}
+
+.ht-label{
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.ht-input{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 11px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e9f2;
+  background: #fff;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+.ht-input:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(79,70,229,0.08);
+}
+
+.register-actions{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.ht-btn{
+  background: linear-gradient(180deg,var(--accent),var(--accent-strong));
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(79,70,229,0.18);
+}
+
+.ht-btn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register-message{
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.register-message.success{
+  color: #064e3b;
+}
+
+.register-message.error{
+  color: var(--danger);
+}
