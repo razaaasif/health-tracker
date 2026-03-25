@@ -1,0 +1,97 @@
+# =====================================================
+# TYPES
+# =====================================================
+
+type User {
+    id: ID!
+    email: String!
+    enabled: Boolean!
+    roles: [String!]!
+    createdOn: String!
+}
+
+type AuthResponse {
+    token: String!
+    user: User!
+}
+
+# =====================================================
+# INPUTS
+# =====================================================
+
+input RegisterInput {
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+}
+
+input SaveHealthLogInput {
+    patientId: ID!
+    steps: Int
+    calories: Int
+    protein: Int
+    water: Int
+    diet: [DietInput]
+    exercises: [ExerciseInput]
+    medicines: [MedicineInput]
+}
+
+input DietInput {
+    mealType: String
+    foodName: String
+    calories: Int
+    protein: Int
+}
+
+input ExerciseInput {
+    exerciseName: String
+    durationMin: Int
+    caloriesBurned: Int
+}
+
+input MedicineInput {
+    medicineName: String
+    dosage: String
+    taken: Boolean
+}
+
+# =====================================================
+# QUERY
+# =====================================================
+
+type Query {
+
+    # ─── USER ─────────────────────────────
+    user(id: ID!): User
+    userByEmail(email: String!): User
+    allUsers: [User!]!
+    usersByRole(role: String!): [User!]!
+
+    # ─── HEALTH ───────────────────────────
+    analyze(patientId: ID!): String
+
+    # ─── TEST ─────────────────────────────
+    hello: String
+}
+
+# =====================================================
+# MUTATION
+# =====================================================
+
+type Mutation {
+
+    # ─── AUTH ─────────────────────────────
+    register(input: RegisterInput!): String
+
+    # (Optional future upgrade)
+     login(email: String!, password: String!): AuthResponse
+
+    # ─── USER MANAGEMENT ──────────────────
+    enableUser(id: ID!): User!
+    disableUser(id: ID!): User!
+    deleteUser(id: ID!): Boolean!
+
+    # ─── HEALTH ───────────────────────────
+    saveHealthLog(input: SaveHealthLogInput!): String
+}
